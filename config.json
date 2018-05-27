@@ -1,0 +1,5 @@
+{
+    "messageIODir":"./messageIODir",
+    "BIC": "SWLBBE22",
+    "outSubdir":"outDir"    
+}

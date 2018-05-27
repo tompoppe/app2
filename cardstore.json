@@ -1,0 +1,8 @@
+{
+    "wallet" : {
+        "type": "composer-wallet-filesystem",
+        "options" : {
+            "storePath" : "/Users/tom/.composer"
+        }
+    }
+}

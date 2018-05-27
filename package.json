@@ -1,0 +1,17 @@
+{
+  "name": "app1",
+  "version": "1.0.0",
+  "description": "test app to connect to tomsbusinessnetwork1",
+  "main": "index.js",
+  "scripts": {
+    "test": "node index.js"
+  },
+  "author": "Tom Poppe",
+  "license": "UNLICENSED",
+  "dependencies": {
+    "composer-client": "^0.19.5",
+    "fs": "0.0.1-security",
+    "path": "^0.12.7",
+    "prompt": "^1.0.0"
+  }
+}
