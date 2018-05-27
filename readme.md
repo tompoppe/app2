@@ -66,13 +66,19 @@ Example of a correct connection.json
 {"name":"hlfv1","x-type":"hlfv1","x-commitTimeout":300,"version":"1.0.0","client":{"organization":"Org1","connection":{"timeout":{"peer":{"endorser":"300","eventHub":"300","eventReg":"300"},"orderer":"300"}}},"channels":{"composerchannel":{"orderers":["orderer.example.com"],"peers":{"peer0.org1.example.com":{}}}},"organizations":{"Org1":{"mspid":"Org1MSP","peers":["peer0.org1.example.com"],"certificateAuthorities":["ca.org1.example.com"]}},"orderers":{"orderer.example.com":{"url":"grpc://orderer.example.com:7050"}},"peers":{"peer0.org1.example.com":{"url":"grpc://peer0.org1.example.com:7051","eventUrl":"grpc://peer0.org1.example.com"}},"certificateAuthorities":{"ca.org1.example.com":{"url":"http://ca.org1.example.com:7054","caName":"ca.org1.example.com"}}}
 
 ## 8.2 Create the docker container
-cd installdir
+
 docker run --network composer_default --name app2 --mount type=bind,source=/Users/tom/.composerDocker,target=/Users/tom/.composer --mount type=bind,source=/Users/tom/messageadapterIO,target=/usr/src/app2/messageIODir app2
 
-
-
-notes : 
+This command uses 2 mount parameter. 
+The first one is to map the external card store to a location in the container
+Note : 
 The target mount parameter must be the same as the path in the cardstore.json (note : if you need to update, you need to rebuild the docker image)
+
+The second parameter maps the external messageIODir to the location in the container where the messageIODir is located
+Note : 
+The target mount parameter must be the same as the messageIODir in the config.json file. If you used a relative path in the config.json, prefix the target mount parameter with the workdir from the docker file (see the example above)
+  
+
 The -p maps the listen port to a port of your choice. 
 
 ## 8.3 Using the server in docker container :
