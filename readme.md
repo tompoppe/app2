@@ -13,6 +13,7 @@ unzip the file to the installdir
 # 3. Build instruction after download from git
 
 cd installdir
+
 npm install
 
 
