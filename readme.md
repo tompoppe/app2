@@ -39,18 +39,10 @@ note:
 
 
 # 7 Using the server
-Pre requisite : the BNA application Tomsbusinessnetwork1 needs to be deployed on the ledger 
-The server will create a mx file in the outSubdir (see config.json) each time a createMessageEvent transaction is executed this can be done using the TomsServer server app using the folowing curl command:
+Pre requisite : the BNA application Tomsbusinessnetwork1 needs to be deployed on the ledger.
+The server will create an mx file in the outSubdir (see config.json) each time a createMessageEvent transaction is executed this can be done using the TomsServer server app using the folowing curl command:
  
 curl 'http://localhost:1338/createMessageEvent?card=admin@tomsnetwork1&uuid=1234567890'
-
-## 7.3 executing a CreateMessageEvent using curl
-This command creates an event ot type newMessage on the ledger
-it takes two parameters :
-card : the name of the business card
-uuid : a unique reference (can be choosen freely)
-
-curl 'http://localhost:81/createMessageEvent?card=admin@tomsnetwork1&uuid=1234567890'
 
 
 # 8 Using the server in a docker container
@@ -69,8 +61,6 @@ Example of a correct connection.json
 ## 8.2 Create the docker container
 cd installdir
 docker run --network composer_default --name app2 --mount type=bind,source=/Users/tom/.composerDocker,target=/Users/tom/.composer --mount type=bind,source=/Users/tom/messageadapterIO,target=/usr/src/app2/messageIODir app2
-
-
 
 notes : 
 The target mount parameter must be the same as the path in the cardstore.json (note : if you need to update, you need to rebuild the docker image)
