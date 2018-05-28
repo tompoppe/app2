@@ -13,6 +13,7 @@ unzip the file to the installdir
 # 3. Build instruction after download from git
 
 cd installdir
+
 npm install
 
 
@@ -38,18 +39,10 @@ note:
 
 
 # 7 Using the server
-Pre requisite : the BNA application Tomsbusinessnetwork1 needs to be deployed on the ledger 
-The server will create a mx file in the outSubdir (see config.json) each time a createMessageEvent transaction is executed this can be done using the TomsServer server app using the folowing curl command:
+Pre requisite : the BNA application Tomsbusinessnetwork1 needs to be deployed on the ledger.
+The server will create an mx file in the outSubdir (see config.json) each time a createMessageEvent transaction is executed this can be done using the TomsServer server app using the folowing curl command:
  
 curl 'http://localhost:1338/createMessageEvent?card=admin@tomsnetwork1&uuid=1234567890'
-
-## 7.3 executing a CreateMessageEvent using curl
-This command creates an event ot type newMessage on the ledger
-it takes two parameters :
-card : the name of the business card
-uuid : a unique reference (can be choosen freely)
-
-curl 'http://localhost:81/createMessageEvent?card=admin@tomsnetwork1&uuid=1234567890'
 
 
 # 8 Using the server in a docker container
@@ -69,16 +62,8 @@ Example of a correct connection.json
 
 docker run --network composer_default --name app2 --mount type=bind,source=/Users/tom/.composerDocker,target=/Users/tom/.composer --mount type=bind,source=/Users/tom/messageadapterIO,target=/usr/src/app2/messageIODir app2
 
-This command uses 2 mount parameter. 
-The first one is to map the external card store to a location in the container
-Note : 
+notes : 
 The target mount parameter must be the same as the path in the cardstore.json (note : if you need to update, you need to rebuild the docker image)
-
-The second parameter maps the external messageIODir to the location in the container where the messageIODir is located
-Note : 
-The target mount parameter must be the same as the messageIODir in the config.json file. If you used a relative path in the config.json, prefix the target mount parameter with the workdir from the docker file (see the example above)
-  
-
 The -p maps the listen port to a port of your choice. 
 
 ## 8.3 Using the server in docker container :
