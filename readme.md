@@ -60,7 +60,7 @@ Example of a correct connection.json
 
 ## 8.2 Create the docker container
 
-docker run --network composer_default --name app2 --mount type=bind,source=/Users/tom/.composerDocker,target=/Users/tom/.composer --mount type=bind,source=/Users/tom/messageadapterIO,target=/usr/src/app2/messageIODir app2
+docker run --network composer_default --name app2 --mount type=bind,source=/Users/tom/.composer,target=/Users/tom/.composer --mount type=bind,source=/Users/tom/messageadapterIO,target=/usr/src/app2/messageIODir app2
 
 notes : 
 The target mount parameter must be the same as the path in the cardstore.json (note : if you need to update, you need to rebuild the docker image)

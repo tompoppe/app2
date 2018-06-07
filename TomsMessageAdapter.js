@@ -3,11 +3,14 @@ var https = require('https');
 var url = require ('url');
 var fs = require ('fs');
 var path = require('path');
+var compHelp = require ("./ComposerHelp.js");
+var compHelper = new compHelp();
 
 
+var config = readConfigFile();
 const BusinessNetworkConnection = require('composer-client').BusinessNetworkConnection;
 this.bizNetworkConnection = new createBusinessNetworkConnection();
-this.cardName = 'admin@tomsnetwork1';
+this.cardName = compHelper.createCardName(config.cardName);
 var config = readConfigFile();
 prepareIODir(config);
 console.log (this.cardName);
