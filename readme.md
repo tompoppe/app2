@@ -22,11 +22,15 @@ You need to edit the config.json file.
 {
     "messageIODir":"./messageIODir",
     "BIC": "SWLBBE22",
-    "outSubdir":"outDir"    
+    "outSubdir":"outDir"
+    "cardName":"admin@tomsnetwork1"           
 }
 messageIODir : the root folder where the message files will be located
 BIC: The sending BIC
 outSubdir: The name of the subfolder (under messageIODir) where the sending files will be located
+cardName: the name of the business card to be used. This card must exist. Note that the cardname will be transformed as follows : used cardName = cardname.[ORGANIZATION].[ORGANIZATION]@networkname
+where [ORGANIZATION] = the value of the env variable ORGANIZATION
+If the environment variable does not exist, no transformation occurs 
 
 
 # 6 start the server server
